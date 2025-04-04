@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.fatma.fawry.internship.ecommerce;
+package net.fatma.fawry.internship.ecommerce.entity;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class Cart {
     private ArrayList<ProductCart> products;
     private double totalPrice;
 
-    Cart(Customer customer) {
+    public Cart(Customer customer) {
         this.customer = customer;
         totalPrice = 0.0;
         products = new ArrayList<>();

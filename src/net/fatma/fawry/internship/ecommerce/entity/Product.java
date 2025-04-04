@@ -3,27 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.fatma.fawry.internship.ecommerce;
+package net.fatma.fawry.internship.ecommerce.entity;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
  * @author A M
  */
-public class Product {
+public class Product implements Shippable {
 
     private String name;
     private double price;
     private int quentity;
     private double weight;
-    private boolean expire;
+    private Date expiryDate ;
     private boolean shipping;
 
-    public Product(String name, double price, int quentity, double weight, boolean expire, boolean shipping) {
+    public Product(String name, double price, int quentity, double weight, Date expire, boolean shipping) {
         this.name = name;
         this.price = price;
         this.quentity = quentity;
         this.weight = weight;
-        this.expire = expire;
+        this.expiryDate = expire;
         this.shipping = shipping;
     }
     
@@ -41,11 +44,14 @@ public class Product {
     
     
     public boolean isExpire() {
-        return expire;
+return expiryDate.before(new Date());
     }
 
-    public void setExpire(boolean expire) {
-        this.expire = expire;
+    public void setExpire(Date expire) {
+        this.expiryDate = expire;
+    }
+     public Date getExpire() {
+        return expiryDate; 
     }
 
     public boolean isShipping() {
